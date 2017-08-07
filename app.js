@@ -61400,7 +61400,7 @@ module.exports = "<div class=\"row\">\n    <div class=\"col-12\">\n        <leit
 /* 465 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row justify-content-end\">\n    <div class=\"col-12\">\n        <b-modal ref=\"MODAL_QRCODE\" size=\"lg\" title=\"Lendo código...\" @hide=\"aoFecharModal()\">\n            <div class=\"container\">\n                <div class=\"row\">\n                    <div class=\"col-12\">\n                        <button class=\"btn btn-secondary\" v-for=\"(camera,index) in obterCameras()\" v-on:click=\"ativarCamera(camera)\">Camera {{index}}</button>\n                    </div>\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-12\">\n                        <video class=\"w-100\" id=\"preview\"></video>\n                    </div>\n                </div>\n            </div>\n            <template slot=\"modal-footer\">\n                <button class=\"btn btn-secondary\" role=\"button\" v-on:click=\"fecharModal()\">Cancelar</button>\n            </template>\n        </b-modal>\n    </div>\n</div>"
+module.exports = "<div class=\"row justify-content-end\">\n    <div class=\"col-12\">\n        <b-modal ref=\"MODAL_QRCODE\" size=\"lg\" title=\"Lendo código...\" @hide=\"aoFecharModal()\">\n            <div class=\"container\">\n                <!--<div class=\"row\">\n                    <div class=\"col-12\">\n                        <button class=\"btn btn-secondary\" v-for=\"(camera,index) in obterCameras()\" v-on:click=\"ativarCamera(camera)\">Camera {{index}}</button>\n                    </div>\n                </div>!-->\n                <div class=\"row\">\n                    <div class=\"col-12\">\n                        <video class=\"w-100\" id=\"preview\"></video>\n                    </div>\n                </div>\n            </div>\n            <template slot=\"modal-footer\">\n                <button class=\"btn btn-secondary\" role=\"button\" v-on:click=\"fecharModal()\">Cancelar</button>\n            </template>\n        </b-modal>\n    </div>\n</div>"
 
 /***/ }),
 /* 466 */
@@ -64670,9 +64670,9 @@ var LeitorQRCodeComponent = (function (_super) {
         else {
             /*for (let camera of this.getCameras()) {
                 alert(camera.id + '/' + camera.name);
-            }
-            let rearCamera = this.getCameras().find((camera) => camera.name.indexOf('back') !== -1);
-            this.ativarCamera(rearCamera || this.getCameras()[0]);*/
+            }*/
+            var rearCamera = this.obterCameras().find(function (camera) { return camera.name.indexOf('back') !== -1; });
+            this.ativarCamera(rearCamera || this.obterCameras()[0]);
         }
     };
     LeitorQRCodeComponent.prototype.aoLerCodigo = function (valor) {
