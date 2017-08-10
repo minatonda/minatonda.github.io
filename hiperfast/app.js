@@ -43218,6 +43218,10 @@ class Camera {
       audio: false,
       video: {
         mandatory: {
+          googEchoCancellation: false,
+          googAutoGainControl: false,
+          googNoiseSuppression: false,
+          googHighpassFilter: false,
           sourceId: this.id,
           minWidth: 600,
           maxWidth: 800,
@@ -64655,14 +64659,13 @@ var LeitorQRCodeComponent = (function (_super) {
         this.scanner.stop();
     };
     LeitorQRCodeComponent.prototype.abrirModal = function () {
-        var _this = this;
-        //this.buscarCameras();
-        var video = document.getElementById('preview');
-        navigator.mediaDevices.getUserMedia({ video: true }).then(function (stream) {
+        this.buscarCameras();
+        //let video = document.getElementById('preview') as any;
+        /*navigator.mediaDevices.getUserMedia({ video: true }).then((stream) => {
             video.src = window.URL.createObjectURL(stream);
             video.play();
-            _this.$refs.MODAL_QRCODE.show();
-        });
+            (this.$refs as any).MODAL_QRCODE.show();
+        });*/
     };
     LeitorQRCodeComponent.prototype.fecharModal = function () {
         this.desativarCamera();
