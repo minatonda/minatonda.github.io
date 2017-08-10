@@ -43218,10 +43218,6 @@ class Camera {
       audio: false,
       video: {
         mandatory: {
-          googEchoCancellation: false,
-          googAutoGainControl: false,
-          googNoiseSuppression: false,
-          googHighpassFilter: false,
           sourceId: this.id,
           minWidth: 600,
           maxWidth: 800,
@@ -64659,7 +64655,8 @@ var LeitorQRCodeComponent = (function (_super) {
         this.scanner.stop();
     };
     LeitorQRCodeComponent.prototype.abrirModal = function () {
-        this.buscarCameras();
+        //this.buscarCameras();
+        this.$refs.MODAL_QRCODE.show();
         //let video = document.getElementById('preview') as any;
         /*navigator.mediaDevices.getUserMedia({ video: true }).then((stream) => {
             video.src = window.URL.createObjectURL(stream);
