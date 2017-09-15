@@ -59,9 +59,11 @@ function ApplicationInterface(element) {
     }
 
     function _onSelectTask(task) {
-        isShowingTaskDetail = true;
-        appTaskEditor.showTask(task);
-        _showTaskEditor();
+        if (task) {
+            isShowingTaskDetail = true;
+            appTaskEditor.showTask(task);
+            _showTaskEditor();
+        }
     }
 
     function _saveTask() {

@@ -36,7 +36,7 @@ function ApplicationInterfaceTaskList(element, props) {
             element.querySelector('.js-task-list').appendChild(_htmlCreateTaskRow(task));
         });
         while (count <= 20) {
-            element.querySelector('.js-task-list').appendChild(_htmlCreateTaskRow({}));
+            element.querySelector('.js-task-list').appendChild(_htmlCreateTaskRow(false));
             count++;
         }
     }
@@ -78,9 +78,11 @@ function ApplicationInterfaceTaskList(element, props) {
         //buttonCheck.innerText = "Checkar";
         buttonCheck.classList.add('btn-img');
         buttonCheck.classList.add('img-check');
-        buttonCheck.onclick = function () {
-            _taskCheck(task);
-        };
+        if (task) {
+            buttonCheck.onclick = function () {
+                _taskCheck(task);
+            };
+        }
 
         div.appendChild(buttonCheck);
         return div;
